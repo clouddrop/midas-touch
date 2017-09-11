@@ -31,7 +31,7 @@ public class ParkingLot {
 
         for (ParkingType eachParking: parkingCapacityCache.keySet()){
             if (parkingCapacityCache.get(eachParking) == 0 ){
-                System.out.println("ParkingType Full for Type " + eachParking.);
+                System.out.println("ParkingType Full for Type " + eachParking.getName());
             }else if(validator.isAllowd(vehicle , eachParking)){
                 parkingCapacityCache.put(eachParking , parkingCapacityCache.get(eachParking) -1);
                 vehicleParkingMap.put(vehicle , eachParking);
@@ -49,6 +49,7 @@ public class ParkingLot {
             ParkingType parkingType = vehicleParkingMap.get(vehicle);
             parkingCapacityCache.put(parkingType , parkingCapacityCache.get(parkingType) -1);
             vehicleParkingMap.remove(vehicle);
+            return true;
 
         }else {
             return false;
